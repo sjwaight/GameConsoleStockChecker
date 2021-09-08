@@ -47,7 +47,7 @@ module.exports = {
         try
         {
             // try and find the "Add to cart" button on the page which is only present if you can buy the console.
-            //const elementValue = await page.innerText('#__next > div > div.StandardPage.ProductPage > main > div > div.ProductSummary > div.product-actions > div.ProductCartAndWishlist > div:nth-child(1) > button.Button.variant-primary.size-normal');
+            const elementValue = await page.innerText('#__next > div > div.StandardPage.ProductPage > main > div > div.ProductSummary > div.product-actions > div.ProductCartAndWishlist > div:nth-child(1) > button.Button.variant-primary.size-normal');
             hasConsole = true;
             context.log("BigDoubleU: XBox Series X in stock! :)");
         } 
