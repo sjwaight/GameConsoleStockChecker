@@ -1,5 +1,8 @@
 const checkers = require("./sitecheckers.js");
-const azure = require('azure-sb');
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+
 
 module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
@@ -18,19 +21,14 @@ module.exports = async function (context, myTimer) {
     if(inStock != null)
     {
         context.log("Sending push notification as XBox Series X is in Stock at least in one location!");
-        
-        var notificationHubService = azure.createNotificationHubService(process.env.HubName, process.env.NotificationHubConnection);
-    
-        var payload = '<toast><visual><binding template="ToastText01"><text id="1">XBox Series X in stock @ ' + inStock.pageLink + '</text></binding></visual></toast>';
-        notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-            if(!error){
-                context.log("Sucessfully sent push notification as XBox Series X is in stock!");
-            }
-            else
-            {
-                context.log("Error sending pushing notification: " + error.message);
-            }
-        });
+
+        client.messages
+            .create({
+                body: 'XBox Series X in stock @ ' + inStock.pageLink,
+                from: 'SWConsoleCx',
+                to: process.env.MESSAGE_RECIPIENT
+            })
+            .then(message => context.log("Message sent with ID: " + message.sid));
     }
     else
     {
