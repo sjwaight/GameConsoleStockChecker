@@ -3,7 +3,7 @@ const azure = require('azure-storage');
 
 module.exports = async function (context, req) {
 
-    const textMessageBody = req.body.Body;
+    const textMessageBody = req.body;
     const responseMessage = "";
     const responseCode = 200;
 
