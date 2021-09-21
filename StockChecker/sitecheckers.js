@@ -62,7 +62,7 @@ module.exports = {
 
         await browser.close();
 
-        return new LookupResponse(consoleAvailable = true, pageLink = url);
+        return new LookupResponse(consoleAvailable = hasConsole, pageLink = url);
     },
 
     CheckMSAU: async function(context) {
@@ -98,6 +98,6 @@ module.exports = {
 
         await browser.close();
 
-        return new LookupResponse(consoleAvailable = true, pageLink = url);
+        return new LookupResponse(consoleAvailable = hasConsole, pageLink = url);
     }
 };
