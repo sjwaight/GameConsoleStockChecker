@@ -4,7 +4,16 @@
       "name": "myTimer",
       "type": "timerTrigger",
       "direction": "in",
-      "schedule": "0 */30 * * * *"
+      "schedule": "0 */1 * * * *"
+    },
+    {
+      "name": "controlEntity",
+      "type": "table",
+      "tableName": "jobcontrol",
+      "partitionKey": "consolechecker",
+      "rowKey": "isenabled",
+      "connection": "",
+      "direction": "in"
     }
   ]
 }

@@ -1,6 +1,5 @@
 const azure = require('azure-storage');
 
-
 module.exports = async function (context, req) {
 
     const textMessageBody = req.body;
