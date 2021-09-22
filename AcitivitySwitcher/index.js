@@ -25,7 +25,7 @@ module.exports = async function (context, req) {
         };
 
         tableSvc.replaceEntity('jobcontrol', serviceStatus, function(error, result, response){
-            if(!error) {
+            if(error) {
                 context.log("Failed to replace table entity!");
                 responseMessage = "Couldn't disable SMS send.";
                 responseCode = 500;
