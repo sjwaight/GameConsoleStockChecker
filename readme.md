@@ -8,7 +8,7 @@ Once a retailer is found to have stock available, the Azure Function then uses T
 
 There is also a second Function that can be invoked via a webhook call from Twilio that is used to turn the checker on and off simply by sending a text message ('Pause' to stop and 'Start' to start). This Function updates a Azure Table Storage entry which is used as an input binding for the main console checker Function.
 
-Further details to come.
+If you want to understand more about how this solution works, and what it is designed to do then check out this [blog post](https://blog.siliconvalve.com/2021/09/22/build-a-serverless-gaming-console-stock-checker-with-playwright-azure-functions-and-twilio/).
 
 If you want to run and debug this Azure Functions project on your computer you will need: VSCode, Node 14 and the Azure Functions Core Tools (Windows, Mac or Linux).
 
